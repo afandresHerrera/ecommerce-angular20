@@ -1,0 +1,26 @@
+<div class="tabs-container">
+    <div class="tab" [class.active]="selectedTab === 'top'" (click)="selectTab('top')">
+        Top ventas
+        <span class="icon" *ngIf="selectedTab === 'top'">▼</span>
+    </div>
+
+    <div class="tab" [class.active]="selectedTab === 'explore'" (click)="selectTab('explore')">
+        Explorar
+        <span class="icon" *ngIf="selectedTab === 'explore'">➔</span>
+    </div>
+</div>
+
+<div class="product-list-container">
+    <div class="product-card" *ngFor="let product of products(); let i = index" (click)="handleOpen(product)">
+        <img class="product-image" [src]="product.image" [alt]="product.title" />
+        <div class="product-info">
+            <div class="product-details">
+                <h3 class="product-title">{{ product.title }}</h3>
+                <p class="product-price">{{ product.price }}$</p>
+            </div>
+            <button class="like-button" [class.favorited]="isLiked(i)" (click)="toggleLike(i, $event)">
+                ❤
+            </button>
+        </div>
+    </div>
+</div>

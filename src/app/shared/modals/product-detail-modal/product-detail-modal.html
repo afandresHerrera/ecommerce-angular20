@@ -1,0 +1,32 @@
+<div class="modal-backdrop" (click)="close.emit()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+    <div class="modal-left" *ngIf="product">
+      <img [src]="product.image" [alt]="product.title" />
+      <div class="price">{{ product.price }}$ / Talla {{ selectedSize() }}</div>
+    </div>
+
+    <div class="modal-right" *ngIf="product">
+      <h2 class="title">{{ product.title }}</h2>
+
+      <div class="row talla-row">
+        <span class="label">Talla</span>
+        <div class="sizes">
+          <button *ngFor="let size of sizes" [class.selected]="selectedSize() === size" (click)="selectSize(size)">
+            {{ size }}
+          </button>
+        </div>
+        <div class="color-icon">🎨 Negro</div>
+      </div>
+
+      <h3 class="subtitle">Descripción</h3>
+      <p class="description">
+        {{ product.description }}
+      </p>
+
+      <div class="actions">
+        <button class="cancel" (click)="close.emit()">Cancelar</button>
+        <button class="confirm" (click)="addToCart()">🛍️ Agregar a la bolsa</button>
+      </div>
+    </div>
+  </div>
+</div>

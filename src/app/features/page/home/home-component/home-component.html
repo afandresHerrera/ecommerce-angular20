@@ -1,0 +1,9 @@
+<app-searchbar-component></app-searchbar-component>
+<app-category-list-component></app-category-list-component>
+<app-product-card-component (openDetail)="openProductDetail($event)"></app-product-card-component>
+<app-product-detail-modal *ngIf="selectedProduct()" [product]="selectedProduct()!" (close)="closeProductDetail()"
+    (openCart)="openCartModal()"></app-product-detail-modal>
+
+<app-cart-modal *ngIf="showCartModal()" (close)="closeCartModal()"></app-cart-modal>
+
+<button class="cart-fab" (click)="openCartModal()">🛒</button>

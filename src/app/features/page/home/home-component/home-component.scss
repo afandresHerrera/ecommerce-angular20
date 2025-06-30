@@ -1,0 +1,15 @@
+.cart-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #F26F3F;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 999;
+}

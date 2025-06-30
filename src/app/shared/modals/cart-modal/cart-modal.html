@@ -1,0 +1,55 @@
+<div class="modal-backdrop" (click)="close.emit()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="header">
+            <button class="back-btn" (click)="close.emit()">←</button>
+            <h2>Mi Bolsa</h2>
+            <button class="close-btn" (click)="close.emit()">✕</button>
+        </div>
+
+        <div *ngIf="cartItems().length === 0" class="empty">Tu bolsa está vacía.</div>
+
+        <div *ngIf="cartItems().length > 0" class="cart-body">
+            <div class="products">
+                <div *ngFor="let item of cartItems()" class="cart-item">
+                    <img [src]="item.product.image" class="thumb" />
+                    <div class="info">
+                        <div class="title">{{ item.product.title }}</div>
+                        <div class="desc">🎨 {{ item.product.category }}</div>
+                        <div class="price-row">
+                            <strong>${{ item.product.price }}</strong>
+                            <span>/ {{ item.product.description.split(' ')[0] }}</span>
+                        </div>
+                        <div class="qty">
+                            <button (click)="cartService.updateQuantity(item.product.id, item.quantity - 1)">−</button>
+                            <span>{{ item.quantity }}</span>
+                            <button (click)="cartService.updateQuantity(item.product.id, item.quantity + 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-more">
+                    <span (click)="close.emit()">Agregar más productos</span> <span (click)="close.emit()">➔</span>
+                </div>
+            </div>
+
+            <div class="summary">
+                <h3>Información del pedido</h3>
+                <div class="line">
+                    <span>🎲 Productos ({{ cartItems().length }}):</span>
+                    <strong>{{ subtotal() | currency }}</strong>
+                </div>
+                <div class="line">
+                    <span>💰 Impuestos:</span>
+                    <strong>{{ tax() | currency }}</strong>
+                </div>
+                <hr />
+                <div class="line total">
+                    <span>Total:</span>
+                    <strong>{{ total() | currency }}</strong>
+                </div>
+                <button class="checkout" (click)="buyAll()">Comprar</button>
+                <button class="clear" (click)="cartService.clearCart()">Vaciar carrito</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="logo" [routerLink]="['/']">
+    <span class="icon">⨉</span>
+  </div>
+
+  <!-- Menú -->
+  <ul class="menu">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    </li>
+    <li>
+      <a  routerLinkActive="active">Categorías</a>
+    </li>
+    <li>
+      <a  routerLinkActive="active">Bolsa</a>
+    </li>
+    <li>
+      <a routerLink="/profile" routerLinkActive="active">Perfil</a>
+    </li>
+  </ul>
+</nav>

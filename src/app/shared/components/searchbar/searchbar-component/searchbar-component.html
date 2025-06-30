@@ -1,0 +1,11 @@
+<div class="search-container">
+    <h2 class="title">¿Qué es lo que estás buscando?</h2>
+
+    <div class="search-box">
+        <input type="text" [(ngModel)]="keyword" (ngModelChange)="onSearch($event)" (keydown.enter)="onSearch(keyword)"
+            placeholder="Introduce una palabra clave…" />
+        <button class="search-button" (click)="onSearch(keyword)">
+            🔍
+        </button>
+    </div>
+</div>

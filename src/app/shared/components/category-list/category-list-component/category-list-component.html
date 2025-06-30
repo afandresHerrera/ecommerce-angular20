@@ -1,0 +1,13 @@
+<section class="category-container">
+    <h3 class="category-title">Categorías</h3>
+
+    <div class="category-list">
+        <button *ngFor="let category of categories()" class="category-btn"
+            [ngClass]="{ 'selected': selectedCategory() === category.name }" (click)="selectCategory(category.name)">
+            <span class="icon">{{ category.icon }}</span>
+            {{ category.name }}
+        </button>
+    </div>
+
+
+</section>
