@@ -1,6 +1,12 @@
-# EcommerceAngular20
+# 🛍️ Ecommerce Angular 2020
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+
+
+Este es un proyecto completo de un e-commerce moderno construido con **Angular version 20.0.4**, utilizando:
+- ✅ Standalone Components
+- 🧠 Angular Signals
+- 🧪 Pruebas unitarias (`@angular/core/testing`)
+- 💬 Gestión de estado mínima y reactiva
 
 ## Development server
 
